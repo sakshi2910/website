@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+
+<html>
+<head>
+
+{% load staticfiles %}
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+<link href="{% static 'css/site.css' %}" rel="stylesheet" type="text/css" />
+<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="{% static 'scripts/jquery.bootstrap.newsbox.min.js' %}" type="text/javascript"></script>
+
+
+<link rel="stylesheet" type="text/css" href="{% static 'giggles/style.css' %}" />
+<div class="container1">
+  <a href="{% url 'homepage'%}">HOME</a>
+  <a href="{% url 'about'%}">ABOUT US</a>
+  <div class="dropdown1">
+    <button class="dropbtn">ADMISSIONS</button>
+    <div class="dropdown1-content">
+      <a href="{% url 'admission'%}">APPLICATION PROCESS</a>
+      <a href="{% url 'help'%}">HELP DESK</a>
+    </div>
+  </div> 
+  <a href="{% url 'contact'%}">CONTACT US</a>
+  <div class="dropdown1">
+    <button class="dropbtn">LOGIN</button>
+    <div class="dropdown1-content">
+      <a href="{% url 'login:student_login'%}"> STUDENT LOGIN</a>
+      <a href="{% url 'login:staff_login'%}">STAFF LOGIN</a>
+    </div>
+  </div>
+ 
+
+</div>
+<div class="contact">
+	<h1>
+     APPLICATION PROCESS   
+    </h1>
+</div>
+
+<div class="separate">
+
+</div>
+</head>
+<body>
+  <div class ="useless" >
+  </div>
+
+  <div class="app" >
+    <div class="who" >
+
+<h2><u>WHO CAN APPLY</u></h2>
+<h3>
+Age Eligibility for the 2018-2019 School Year</h3>
+
+<h4>Pre-Nursery Classes</h4>
+Children who were born between August 1, 2014 and July 31, 2015.
+
+<h4>Nursery Classes</h4>
+Children who were born between August 1, 2013 and July 31, 2014.
+<br/>
+*Preschool applicants will need to submit their original birth certificate to validate their age.  Until the applicant’s birth certificate is submitted to our office, their application for admission is considered incomplete.
+<br/>
+<h3>Preferred candidates</h3>
+
+An ideal candidate for Giggles Playway Program, with or without accommodation is:
+<ul>
+<li>Fully toilet trained </li>
+<li>Able to dress/undress self</li>
+<li>Able to feed self with fork/spoon and drink from a cup</li>
+<li>Independently mobile</li>
+<li>Able to understand and follow simple one-step directions</li>
+<li>Able to separate from parents/primary caregiver with minimal disruption</li>
+<li>Able to demonstrate safe behaviors which do not pose a direct threat to self and others</li>
+<li>Able to demonstrate appropriate behavior towards other children and adults</li>
+<li>Beginning to demonstrate kindness and empathy towards others</li>
+<li>Able to communicate clearly with classmates, teachers, administrators and others as needed</li>
+</ul>
+</div>
+<div class="how">
+  <h2> <u>HOW TO APPLY</u></h2>
+  <p> Download our instruction manual from the link given below. For furthur queries, feel free to read our FAQs section or contact us directly.
+  </p>
+  <a href="guidelines.pdf" target="_blank" download="guidelines">
+  GUIDELINES FOR ADMISSIONS
+</a>
+</div>
+</div>
+
+
+<div class="appimg" style="margin-right:200px"> <img src="{% static 'giggles/images/welcome3.jpg' %}" >
+</div>
+
+
+
+
+</body>
+</html>

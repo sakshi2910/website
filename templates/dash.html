@@ -1,0 +1,22 @@
+{% extends 'dashboard/base.html' %}
+
+{% block body %}
+	{% if all_students %}
+
+	    <h3> ALL STUDENTS' DETAILS : </h3>
+
+	    <ul>
+	    {% for student in all_students %}
+	        <li> <a href="{% url 'dashboard:student_detail' student.id %}"> {{student.rollno}} - {{student.f_name}} {{student.l_name}}</a></li>
+	    {% endfor %}
+	    </ul>
+
+	{% else %}
+	    <h3> No Students available </h3>
+
+	{% endif %}
+
+{% endblock %}
+
+
+

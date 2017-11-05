@@ -1,0 +1,118 @@
+<!doctype html>
+{% load staticfiles %}
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="{% static 'giggles/css/reset.css' %}"> <!-- CSS reset -->
+	<link rel="stylesheet" href="{% static 'giggles/css/style.css' %}"> <!-- Resource style -->
+	<script src="{% static 'giggles/js/modernizr.js' %}"></script> 
+
+
+<link rel="stylesheet" type="text/css" href="{% static 'giggles/style.css' %}" />
+<div class="container1">
+  <a href="{% url 'homepage'%}">HOME</a>
+  <a href="{% url 'about'%}">ABOUT US</a>
+  <div class="dropdown1">
+    <button class="dropbtn">ADMISSIONS</button>
+    <div class="dropdown1-content">
+      <a href="{% url 'admission'%}">APPLICATION PROCESS</a>
+      <a href="{% url 'help'%}">HELP DESK</a>
+    </div>
+  </div> 
+  <a href="{% url 'contact'%}">CONTACT US</a>
+  <div class="dropdown1">
+    <button class="dropbtn">LOGIN</button>
+    <div class="dropdown1-content">
+      <a href="{% url 'login:student_login'%}"> STUDENT LOGIN</a>
+      <a href="{% url 'login:staff_login'%}">STAFF LOGIN</a>
+    </div>
+  </div>
+ 
+
+</div>
+<div class="contact">
+  <h1>
+     HELP DESK  
+    </h1>
+</div>
+<div class="separate">
+
+</div>
+
+
+
+
+</head>
+<body>
+<div class="faq">
+<section class="cd-faq">
+	<!--<ul class="cd-faq-categories">
+		<li><a class="selected" href="#basics">Basics</a></li>
+		<li><a href="#mobile">Mobile</a></li>
+		<li><a href="#account">Account</a></li>
+		<li><a href="#payments">Payments</a></li>
+		<li><a href="#privacy">Privacy</a></li>
+		<li><a href="#delivery">Delivery</a></li>
+	</ul> <!-- cd-faq-categories -->
+
+	<div class="cd-faq-items">
+		<ul id="basics" class="cd-faq-group">
+			<!--<li class="cd-faq-title"></li>-->
+
+			<li>
+				<a class="cd-faq-trigger" href="">Q. WHEN SHOULD I CALL TO REQUEST AN APPLICATION?</a>
+				<div class="cd-faq-content">
+					<p>The calling day to request an application for admission is the first Wednesday after Labor day; this year, it is September 6, 2017. Calls are received anytime after 8:30 a.m. and some basic information will be asked about the child.  Anyone can call to request an application on behalf of the child. The School receives a large volume of calls, so please be patient when requesting the application.</p>
+				</div> <!-- cd-faq-content -->
+			</li>
+
+			<li>
+				<a class="cd-faq-trigger" href="#0">Q. HOW OLD SHOULD MY CHILD BE WHEN APPLYING?</a>
+				<div class="cd-faq-content">
+					<p>Children must be 2 years, 5 months by August 31 of the entering school year. The child needs to turn 2 years old by March 31 the applying year.</p>
+				</div> <!-- cd-faq-content -->
+			</li>
+
+			<li>
+				<a class="cd-faq-trigger" href="#0">Q. HOW MANY SPOTS ARE TYPICALLY AVAILABLE TO NEW STUDENTS?</a>
+				<div class="cd-faq-content">
+					<p>Available spots for new students vary every year, depending upon the number of siblings entering into a particular group. The School maintains a strong student-to-teacher ratio, and strives for an even female-to-male student ratio.</p>
+				</div> <!-- cd-faq-content -->
+			</li>
+
+			<li>
+				<a class="cd-faq-trigger" href="#0">Q. WHAT IS THE YEARLY TUITION?</a>
+				<div class="cd-faq-content">
+					<p>The youngest group of students (born December through March, called Group 1) come to school for two hours each day, Monday through Friday. Group 1 children come for either the morning session, 9:15 to 11:15, or the afternoon session, 1:15 to 3:15. Tuition for Group 1 is $18,850.</p><p>
+
+Groups 2 through 8 come to school for three hours each day, Monday through Friday. Children in Groups 2 through 8 come for either the morning session, 8:30 to 11:30, or the afternoon session, 12:30 to 3:30. Tuition for Groups 2 through 8 is $21,000.</p>
+				</div> <!-- cd-faq-content -->
+			</li>
+
+			<li>
+				<a class="cd-faq-trigger" href="#0">Q. DO YOU OFFER FINANCIAL AID?</a>
+				<div class="cd-faq-content">
+					<p>Yes. The School is a member of the School and Student Service (SSS), an organization that provides financial aid analysis for independent schools. Families have the option to indicate an interest in financial aid on the application form.</p>
+				</div> <!-- cd-faq-content -->
+			</li>
+		</ul> <!-- cd-faq-group -->
+
+		
+			
+	</div> <!-- cd-faq-items -->
+	<a href="#0" class="cd-close-panel">Close</a>
+</section> <!-- cd-faq -->
+<script src="{% static 'giggles/js/jquery-2.1.1.js' %}"></script>
+<script src="{% static 'giggles/js/jquery.mobile.custom.min.js' %}"></script>
+<script src="{% static 'giggles/js/main.js' %}"></script> <!-- Resource jQuery -->
+</div>
+
+<div class="faqimg">
+	 <img src="{% static 'giggles/images/faqs.jpg' %}" >
+	</div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<html>
+<body>
+<div class="form-style-5">
+    {{amount}}
+<input type='hidden' id='client_token' value='{{client_token}}'> // client token from server side
+<form id="checkout" method="post" action="/payment">
+    <div id="payment-form">
+       <input type='hidden' name='amount' value='{{amount}}'> // amount
+       <input type='text' name='amount' value='{{amount}}' readonly>
+    </div>
+    <input type="submit" value="Subcribe"> // Submit Button
+</form>
+
+</div>
+<script src="https://js.braintreegateway.com/v2/braintree.js"></script>
+<script>
+
+var clientToken = document.getElementById('client_token').value;
+// creating payment method nonse
+
+braintree.setup(clientToken, "dropin", {
+  container: "payment-form"
+});
+</script>
+</body>
+</html>

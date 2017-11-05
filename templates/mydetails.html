@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>
+            DASHBOARD::{{UserType}}
+        </title>
+    <meta charset="UTF-8">
+    {% load staticfiles %}
+    <link rel="shortcut icon" type="image/png" href="{%  static 'favicon.ico' %}"/>
+
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+<link href="{% static 'css/site.css' %}" rel="stylesheet" type="text/css" />
+<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="{% static 'scripts/jquery.bootstrap.newsbox.min.js' %}" type="text/javascript"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'dashboard/basestyle.css' %}">
+    <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <script src="{% static 'dashboard/js/main.js' %}"></script>
+</head>
+
+<body >
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+
+        <!-- Header -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{% url 'login:student_login'%}">DASHBOARD</a>
+        </div>
+
+        <!-- Items -->
+        <div class="collapse navbar-collapse" id="topNavBar">
+            <ul class="nav navbar-nav">
+                
+                <li class="">
+                    <a href="{% url 'login:student_detail'%}">
+                        <span class="icon-bar" aria-hidden="true"></span>&nbsp;Profile</a></li>
+
+                <li class="">
+                    <a href="{% url 'login:academic_detail' %}">
+                        <span class="icon-bar" aria-hidden="true"></span>&nbsp;Academic Details</a></li>
+
+                <li class="">
+                    <a href="{% url 'login:complaint_user'%}">
+                        <span class="icon-bar" aria-hidden="true"></span>&nbsp;Send a complaint</a></li>
+
+                
+            </ul>
+
+
+           
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="{% url 'login:change_password' %}" >
+          <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp; Change Password
+        </a>
+                </li>
+                
+                <li>
+                    <a href="{% url 'login:logout_user' %}">
+                        <span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp; Logout
+                    </a>
+                </li>
+            </ul>
+
+
+
+
+
+
+        </div>
+
+    </div>
+</nav>
+
+
+
+
+<div class="jumbotron">
+
+<center> <h2> <b>MY PROFILE! </b></h2> </center>
+
+</div>
+<br>
+
+<div style="padding-left:350px">
+
+{% if Data %}
+        
+
+             <h3> PERSONAL DETAILS </h3>
+             <br>   
+
+                
+
+                    {% for tuple in Data %}
+
+                        <ul>
+                            <li> Student ID : {{ tuple.student_id }} </li>
+                            <li>  Roll No. : {{ tuple.rollno }} </li>
+                            <li>  Name : {{ tuple.name }} </li>
+                            <li>  Date of Birth : {{ tuple.dob }} </li>
+                            <li>  Percentage : {{ tuple.percentage }} </li>
+                            <li>  Attendance : {{ tuple.attendance }} </li>
+                            <li>  Class : {{ tuple.class_no }} </li>
+                            <li>  Driver Details : {{ tuple.driver_no }} </li>
+                        </ul>
+
+
+
+
+
+                        
+                    {% endfor %}
+               
+        {% endif %} 
+
+</div>
+<br>
+<br>
+
+{% if Data2 %}
+
+<div class="container">
+    <h3> DETAILS OF PARENTS </h3> <br><br>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+       <th>  Name  </th>
+                        <th>  Relationship  </th>
+                        <th>  Occupation  </th>
+                        <th>  Date of Birth  </th>
+                        <th>  Email ID  </th>
+                        <th>  Phone No.  </th>
+                        <th>  Address  </th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for tuple in Data2 %}
+      <tr>
+         <td> {{ tuple.name }} </td>
+                            <td> {{ tuple.relationship }} </td>
+                            <td> {{ tuple.occupation }} </td>
+                            <td> {{ tuple.dob }} </td>
+                            <td> {{ tuple.email_id }} </td>
+                            <td> {{ tuple.phone }} </td>
+                            <td> {{ tuple.address }} </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+
+
+{% endif %}
+
+   <br>
+   <br> 
+<div  style="padding-left:350px">
+
+    <h3> TRANSPORT DETAILS</h3> <br><br>
+{% if Data3 %}
+        
+                
+
+                    {% for tuple in Data3 %}
+
+                        <ul>
+                            <li>  Van No. : {{ tuple.van_no}} </li>
+                            <li>  Name of Driver : {{ tuple.name }} </li>
+                            <li>  DOB of Driver : {{ tuple.dob }} </li>
+                            <li>  Phone No. : {{ tuple.phone }} </li>
+                            <li>  Salary : {{ tuple.salary }} </li>
+                            <li>  Address : {{ tuple.address }} </li>
+                            <li>  Email_ID : {{ tuple.email_id }} </li>
+                            <li>  Date of Joining : {{ tuple.date_of_joining }} </li>
+                            <li>  Leaves Taken : {{ tuple.leaves_taken }} </li>
+                        </ul>
+
+
+
+
+
+                        
+                    {% endfor %}
+        {% else %}
+        N.A.<br>
+               
+        {% endif %} 
+        </div>      
+
+</body>
+</html>

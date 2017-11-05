@@ -1,0 +1,317 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>
+            DASHBOARD::{{UserType}}
+        </title>
+    <meta charset="UTF-8">
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load staticfiles %}
+    <link rel="shortcut icon" type="image/png" href="{%  static 'favicon.ico' %}"/>
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+<link href="{% static 'css/site.css' %}" rel="stylesheet" type="text/css" />
+<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="{% static 'scripts/jquery.bootstrap.newsbox.min.js' %}" type="text/javascript"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'dashboard/basestyle.css' %}">
+    <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <script src="{% static 'dashboard/js/main.js' %}"></script>
+</head>
+
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+
+        <!-- Header -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+
+        <!-- Items -->
+        <div class="collapse navbar-collapse" id="topNavBar">
+            <ul class="nav navbar-nav">
+                
+                <li class="">
+                    
+                    <a href="{% url 'login:register_student'%}">
+                        <span class="icon-bar" aria-hidden="true"></span>&nbsp;Register Student</a></li>
+                         <li class="">
+                    
+                    <a href="{% url 'login:modify_student'%}">
+                        <span class="icon-bar" aria-hidden="true"></span>&nbsp;Modify Student Details</a></li>
+
+
+                <li class="">
+                    <a href="{% url 'login:register_teacher' %}">
+                        <span class="icon-bar" aria-hidden="true"></span>&nbsp;Register Teacher</a></li>
+                                       <li class="">
+                    
+                    <a href="{% url 'login:modify_teacher'%}">
+                        <span class="icon-bar" aria-hidden="true"></span>&nbsp;Modify Teacher Details</a></li>
+                        
+                        <li class="">
+                    
+                    <a href="{% url 'login:deregister'%}">
+                        <span class="icon-bar" aria-hidden="true"></span>&nbsp;Deregister Student/Teacher</a></li>
+
+                <li class="">
+                    <a href="{% url 'login:register_caretaker' %}">
+                        <span class="icon-bar" aria-hidden="true"></span>&nbsp;Register Caretaker</a></li>
+                                        <li class="">
+                    <a href="{% url 'login:register_driver'%}">
+                        <span class="icon-bar" aria-hidden="true"></span>&nbsp;Register Driver</a></li>
+                                        <li class="">
+                    <a href="{% url 'login:add_news'%}">
+                        <span class="icon-bar" aria-hidden="true"></span>&nbsp;Add News</a></li>
+                                                <li class="">
+                    <a href="{% url 'login:send_notice' %}">
+                        <span class="icon-bar" aria-hidden="true"></span>&nbsp;Send a Notice</a></li>
+                <li class="">
+                    <a href="{% url 'login:view_complaint'%}">
+                        <span class="icon-bar" aria-hidden="true"></span>&nbsp;View Complaints</a></li>
+ <li class="">
+                    <a href="{% url 'login:update_fees'%}">
+                        <span class="icon-bar" aria-hidden="true"></span>&nbsp;Update Fees</a></li>
+
+
+                
+            </ul>
+
+
+            
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="{% url 'login:admin_password' %}" >
+          <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp; Change Password
+        </a>
+                </li>
+                
+                <li>
+                    <a href="{% url 'login:logout_user' %}">
+                        <span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp; Logout
+                    </a>
+                </li>
+            </ul>
+
+
+
+
+
+
+        </div>
+
+    </div>
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% if Data %}
+
+<div class="container">
+  <h2>Registered Students</h2>          
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>STUDENT ID</th>
+        <th>ROLL NO.</th>
+        <th>CLASS</th>
+        <th>NAME</th>
+        <th>DOB</th>
+        <th>ATTENDANCE</th>
+        <th>PERCENTAGE</th>
+        <th>YEAR</th>
+        <th>DRIVER ID</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for tuple in Data %}
+      <tr>
+        <td>{{tuple.student_id}}</td>
+        <td>{{tuple.rollno}}</td>
+        <td>{{tuple.class_no}}</td>
+        <td>{{tuple.name}}</td>
+        <td>{{tuple.dob}}</td>
+        <td>{{tuple.attendance}}</td>
+        <td>{{tuple.percentage}}</td>
+        <td>{{tuple.year}}</td>
+        <td>{{tuple.driver_no}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+
+
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+<br>
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container-fluid" style="margin-left:500px">
+
+    <div class="row">
+        <div class="col-sm-12 col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3>Enter Student details</h3>
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+                    <form class="form-horizontal" role="form" action="{% url 'login:register_student'%}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+        
+<div class="form-group">
+                            <label class="control-label col-sm-2" for="id_student_id">
+                                Student ID:
+                            </label>
+                            <div class="col-sm-10">
+                                <input id="id_student_id" maxlength="30" name="student_id" type="text">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="id_rollno">
+                                Roll No.:
+                            </label>
+                            <div class="col-sm-10">
+                                <input id="id_rollno" maxlength="30" name="rollno" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="id_name">
+                                Name:
+                            </label>
+                            <div class="col-sm-10">
+                                <input id="id_name" maxlength="30" name="name" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="id_date">
+                                Date of Birth:
+                            </label>
+                            <div class="col-sm-10">
+                                <input id="id_date" maxlength="30" name="date_of_birth" type="date">
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="id_percentage">
+                                Percentage:
+                            </label>
+                            <div class="col-sm-10">
+                                <input id="id_percentage" maxlength="30" name="percentage" type="text">
+                            </div>
+                        </div>
+
+                         <div class="form-group">
+                            <label class="control-label col-sm-2" for="id_attendance">
+                                Attendance:
+                            </label>
+                            <div class="col-sm-10">
+                                <input id="id_attendance" maxlength="30" name="attendance" type="text">
+                            </div>
+                        </div>
+
+                         <div class="form-group">
+                            <label class="control-label col-sm-2" for="id_class">
+                                Class:
+                            </label>
+                            <div class="col-sm-10">
+                                <input id="id_class" maxlength="30" name="class_no" type="text">
+                            </div>
+                        </div>
+
+
+                         <div class="form-group">
+                            <label class="control-label col-sm-2" for="id_issuer">
+                                Driver:
+                            </label>
+                            <div class="col-sm-10">
+                                <input id="id_issuer" maxlength="30" name="driver_no" type="text">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="id_year">
+                                Year of Admission:
+                            </label>
+                            <div class="col-sm-10">
+                                <input id="id_year" maxlength="30" name="year" type="text">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="panel-footer">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
